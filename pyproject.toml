@@ -1,0 +1,10 @@
+[project]
+name = "wifi-presence-scanner"
+requires-python = ">=3.13"
+version = "0.1"
+dependencies = [
+    "python-dotenv",
+    "lxml",
+    "httpx",
+    "sqlmodel",
+]
