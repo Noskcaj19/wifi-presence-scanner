@@ -3,9 +3,9 @@ import sys
 import time
 from typing import List
 from dotenv import load_dotenv
-import httpx
 from lxml import etree
 from pprint import pprint
+import requests
 
 from sqlalchemy import create_engine
 from sqlmodel import Field, SQLModel, Session, select
@@ -15,7 +15,7 @@ load_dotenv()
 
 def get_users():
     url = "http://192.168.1.254/cgi-bin/devices.ha"
-    response = httpx.get(url).content
+    response = requests.get(url).text
     htmlparser = etree.HTMLParser()
     tree = etree.fromstring(response, htmlparser)
     row_els = tree.xpath(
